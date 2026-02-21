@@ -1,32 +1,3 @@
-// Popular Indian cities with their images (fallback data)
-const indianCities = [
-    { name: 'Hyderabad', region: 'Telangana', icon: '🏛️', image: 'https://images.unsplash.com/photo-1560967596-c0b69d12d063?w=100&q=80' },
-    { name: 'Bangalore', region: 'Karnataka', icon: '🌆', image: 'https://images.unsplash.com/photo-1596176530529-78163a4f7af2?w=100&q=80' },
-    { name: 'Mumbai', region: 'Maharashtra', icon: '🌃', image: 'https://images.unsplash.com/photo-1567157577867-05ccb1388e66?w=100&q=80' },
-    { name: 'Delhi', region: 'Delhi NCR', icon: '🏰', image: 'https://images.unsplash.com/photo-1587474260584-136574528ed5?w=100&q=80' },
-    { name: 'Chennai', region: 'Tamil Nadu', icon: '🏖️', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Kolkata', region: 'West Bengal', icon: '🌉', image: 'https://images.unsplash.com/photo-1558431382-27e303142255?w=100&q=80' },
-    { name: 'Pune', region: 'Maharashtra', icon: '🏙️', image: 'https://images.unsplash.com/photo-1595658658481-d53d3f999875?w=100&q=80' },
-    { name: 'Ahmedabad', region: 'Gujarat', icon: '🕌', image: 'https://images.unsplash.com/photo-1609619385002-f40d5b30c2b5?w=100&q=80' },
-    { name: 'Jaipur', region: 'Rajasthan', icon: '🏰', image: 'https://images.unsplash.com/photo-1477587458883-47145ed94245?w=100&q=80' },
-    { name: 'Surat', region: 'Gujarat', icon: '🏭', image: 'https://images.unsplash.com/photo-1605649487212-47b9fb5c6723?w=100&q=80' },
-    { name: 'Lucknow', region: 'Uttar Pradesh', icon: '🕌', image: 'https://images.unsplash.com/photo-1591361795-d4e5e5e1e8c4?w=100&q=80' },
-    { name: 'Kanpur', region: 'Uttar Pradesh', icon: '🏭', image: 'https://images.unsplash.com/photo-1573226220725-e9e9b5d7e7ef?w=100&q=80' },
-    { name: 'Nagpur', region: 'Maharashtra', icon: '🍊', image: 'https://images.unsplash.com/photo-1573226220725-e9e9b5d7e7ef?w=100&q=80' },
-    { name: 'Indore', region: 'Madhya Pradesh', icon: '🏛️', image: 'https://images.unsplash.com/photo-1573226220725-e9e9b5d7e7ef?w=100&q=80' },
-    { name: 'Thane', region: 'Maharashtra', icon: '🌆', image: 'https://images.unsplash.com/photo-1573226220725-e9e9b5d7e7ef?w=100&q=80' },
-    { name: 'Bhopal', region: 'Madhya Pradesh', icon: '🏞️', image: 'https://images.unsplash.com/photo-1573226220725-e9e9b5d7e7ef?w=100&q=80' },
-    { name: 'Visakhapatnam', region: 'Andhra Pradesh', icon: '⛱️', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Vijayawada', region: 'Andhra Pradesh', icon: '🏞️', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Guntur', region: 'Andhra Pradesh', icon: '🌾', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Macherla', region: 'Andhra Pradesh', icon: '🏘️', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Nellore', region: 'Andhra Pradesh', icon: '🌾', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Kurnool', region: 'Andhra Pradesh', icon: '🏞️', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Tirupati', region: 'Andhra Pradesh', icon: '🛕', image: 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?w=100&q=80' },
-    { name: 'Warangal', region: 'Telangana', icon: '🏰', image: 'https://images.unsplash.com/photo-1560967596-c0b69d12d063?w=100&q=80' },
-    { name: 'Nizamabad', region: 'Telangana', icon: '🏘️', image: 'https://images.unsplash.com/photo-1560967596-c0b69d12d063?w=100&q=80' }
-];
-
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -269,9 +240,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('🚗 All features active: Mobile Menu, FAQ Accordion, WhatsApp Booking, Scroll Animations');
 });
 
-// Google Analytics (Optional - Add your GA tracking code here)
-// Example:
-// window.dataLayer = window.dataLayer || [];
-// function gtag(){dataLayer.push(arguments);}
-// gtag('js', new Date());
-// gtag('config', 'YOUR-GA-MEASUREMENT-ID');
+
