@@ -1121,18 +1121,51 @@ footer {
     margin: 0.5rem 0;
 }
 
-/* Responsive Design */
+.mobile-only-nav {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .mobile-only-nav {
+        display: block;
+        border-bottom: none !important;
+        padding-top: 0.5rem;
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - MOBILE FIRST IMPROVEMENTS
+   ============================================= */
+
+/* Tablet - 1024px */
 @media (max-width: 1024px) {
     .nav-links {
         position: fixed;
-        top: 80px;
+        top: 70px;
         left: 0;
         right: 0;
         background: var(--cream);
         flex-direction: column;
-        padding: 2rem 5%;
+        padding: 1.5rem 5%;
         box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         display: none;
+        gap: 0;
+        z-index: 99;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.05rem;
     }
 
     .nav-links.active {
@@ -1180,53 +1213,56 @@ footer {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .about-image img {
+        height: 400px;
+    }
+
+    .about-content h2 {
+        font-size: 2.75rem;
+    }
 }
 
+/* Mobile - 768px */
 @media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .stat-number {
-        font-size: 2.5rem;
-    }
-
-    .services-grid,
-    .testimonials-grid,
-    .service-area-grid,
-    .gallery-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .about-content h2,
-    .services-header h2,
-    .contact-info h2,
-    .booking-form h3,
-    .testimonials-header h2,
-    .gallery-header h2,
-    .faq-header h2,
-    .service-area-content h2 {
-        font-size: 2.5rem;
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-
+    /* Navbar */
     .navbar {
-        padding: 1rem 5%;
+        padding: 1rem 4%;
     }
 
     .logo-text {
-        font-size: 1.25rem;
+        font-size: 1rem;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: 75vh;
+        padding: 3rem 5%;
+    }
+
+    .hero h1 {
+        font-size: 2.25rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .stat-number {
+        font-size: 2.25rem;
     }
 
     .hero-buttons {
         flex-direction: column;
+        align-items: stretch;
     }
 
     .btn-primary,
@@ -1234,6 +1270,158 @@ footer {
         width: 100%;
         text-align: center;
         justify-content: center;
+        padding: 0.9rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    /* About */
+    .about {
+        padding: 4rem 5%;
+    }
+
+    .about-image img {
+        height: 280px;
+    }
+
+    .about-content h2 {
+        font-size: 2.25rem;
+    }
+
+    .about-content p {
+        font-size: 1rem;
+    }
+
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    /* Services */
+    .services {
+        padding: 4rem 5%;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-header h2 {
+        font-size: 2.25rem;
+    }
+
+    .service-image {
+        height: 220px;
+    }
+
+    /* Gallery */
+    .gallery {
+        padding: 4rem 5%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .gallery-header h2 {
+        font-size: 2.25rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+        padding: 4rem 5%;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-header h2 {
+        font-size: 2.25rem;
+    }
+
+    /* FAQ */
+    .faq {
+        padding: 4rem 5%;
+    }
+
+    .faq-header h2 {
+        font-size: 2.25rem;
+    }
+
+    .faq-question {
+        font-size: 1rem;
+        padding: 1.5rem 0;
+    }
+
+    /* Service Area */
+    .service-area {
+        padding: 4rem 5%;
+    }
+
+    .service-area-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+    }
+
+    .service-area-content h2 {
+        font-size: 2.25rem;
+    }
+
+    .area-card {
+        padding: 1.75rem 1.25rem;
+    }
+
+    /* Contact */
+    .contact {
+        padding: 4rem 5%;
+    }
+
+    .contact-container {
+        gap: 2rem;
+    }
+
+    .contact-info h2 {
+        font-size: 2.25rem;
+    }
+
+    .contact-card {
+        padding: 1.75rem;
+    }
+
+    /* Booking Form */
+    .booking-form {
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+    }
+
+    .booking-form h3 {
+        font-size: 2rem;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+        padding: 0.875rem 1rem;
+    }
+
+    .submit-btn {
+        padding: 1.125rem;
+        font-size: 1rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 3rem 5% 2rem;
     }
 
     .footer-content {
@@ -1241,10 +1429,11 @@ footer {
         gap: 2rem;
     }
 
+    /* Floating Buttons */
     .whatsapp-float, .call-float {
-        width: 50px;
-        height: 50px;
-        right: 20px;
+        width: 52px;
+        height: 52px;
+        right: 16px;
     }
 
     .whatsapp-float {
@@ -1252,7 +1441,7 @@ footer {
     }
 
     .call-float {
-        bottom: 80px;
+        bottom: 76px;
     }
 
     .whatsapp-float svg, .call-float svg {
@@ -1261,13 +1450,211 @@ footer {
     }
 }
 
+/* Small Mobile - 480px */
 @media (max-width: 480px) {
+    /* Navbar - hide long logo text, keep abbreviation */
+    .logo-text {
+        display: none;
+    }
+
+    .logo-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.05rem;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+        padding: 2.5rem 5% 3rem;
+    }
+
     .hero h1 {
-        font-size: 2rem;
+        font-size: 1.875rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
     }
 
     .hero-stats {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .stat-item {
+        min-width: 80px;
+    }
+
+    .stat-number {
+        font-size: 1.875rem;
+    }
+
+    .stat-label {
+        font-size: 0.8rem;
+    }
+
+    /* About */
+    .about {
+        padding: 3rem 4%;
+    }
+
+    .about-image img {
+        height: 220px;
+        border-radius: 16px;
+    }
+
+    .about-content h2 {
+        font-size: 1.875rem;
+    }
+
+    /* Services */
+    .services {
+        padding: 3rem 4%;
+    }
+
+    .services-header h2 {
+        font-size: 1.875rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-content {
+        padding: 1.5rem;
+    }
+
+    .service-content h3 {
+        font-size: 1.5rem;
+    }
+
+    /* Gallery - single column on very small screens */
+    .gallery {
+        padding: 3rem 4%;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-header h2 {
+        font-size: 1.875rem;
+    }
+
+    /* Testimonials */
+    .testimonials {
+        padding: 3rem 4%;
+    }
+
+    .testimonials-header h2 {
+        font-size: 1.875rem;
+    }
+
+    .testimonial-card {
+        padding: 1.75rem;
+    }
+
+    /* FAQ */
+    .faq {
+        padding: 3rem 4%;
+    }
+
+    .faq-header h2 {
+        font-size: 1.875rem;
+    }
+
+    .faq-question {
+        font-size: 0.95rem;
+    }
+
+    /* Service Area */
+    .service-area {
+        padding: 3rem 4%;
+    }
+
+    .service-area-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-area-content h2 {
+        font-size: 1.875rem;
+    }
+
+    /* Contact */
+    .contact {
+        padding: 3rem 4%;
+    }
+
+    .contact-info h2 {
+        font-size: 1.875rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .contact-card a {
+        font-size: 1.1rem;
+    }
+
+    /* Booking Form */
+    .booking-form {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .booking-form h3 {
+        font-size: 1.75rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2.5rem 4% 1.5rem;
+    }
+
+    .footer-content {
         gap: 1.5rem;
+    }
+
+    /* Floating buttons - smaller, stay out of way */
+    .whatsapp-float, .call-float {
+        width: 48px;
+        height: 48px;
+        right: 12px;
+    }
+
+    .whatsapp-float {
+        bottom: 130px;
+    }
+
+    .call-float {
+        bottom: 72px;
+    }
+
+    .whatsapp-float svg, .call-float svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Extra small - 360px (very small Android phones) */
+@media (max-width: 360px) {
+    .hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .btn-primary, .btn-secondary {
+        font-size: 0.95rem;
+        padding: 0.85rem 1.25rem;
+    }
+
+    .about-content h2,
+    .services-header h2,
+    .testimonials-header h2,
+    .faq-header h2,
+    .gallery-header h2,
+    .service-area-content h2,
+    .contact-info h2,
+    .booking-form h3 {
+        font-size: 1.65rem;
     }
 }
