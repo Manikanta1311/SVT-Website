@@ -1,3 +1,5 @@
+
+
 // Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -25,40 +27,57 @@ document.addEventListener('DOMContentLoaded', function() {
     // Owner name hover effect
     const ownerName = document.querySelector('.owner-name');
     const ownerPopup = document.querySelector('.owner-image-popup');
+    const ownerBackdrop = document.getElementById('ownerBackdrop');
     
     if (ownerName && ownerPopup) {
+        const isMobile = () => window.innerWidth <= 768;
+
+        // Desktop: hover to show, follow cursor
         ownerName.addEventListener('mouseenter', function() {
-            ownerPopup.style.opacity = '1';
+            if (!isMobile()) ownerPopup.style.opacity = '1';
         });
-        
+
         ownerName.addEventListener('mouseleave', function() {
-            ownerPopup.style.opacity = '0';
+            if (!isMobile()) ownerPopup.style.opacity = '0';
         });
-        
+
         ownerName.addEventListener('mousemove', function(e) {
-            // Position popup near cursor
-            const x = e.clientX + 20;
-            const y = e.clientY + 20;
-            
-            // Make sure popup doesn't go off screen
-            const popupWidth = 320;
-            const popupHeight = 460;
-            
-            let finalX = x;
-            let finalY = y;
-            
-            // Check right edge
-            if (x + popupWidth > window.innerWidth) {
-                finalX = e.clientX - popupWidth - 20;
+            if (isMobile()) return;
+
+            const popupWidth = 220;
+            const popupHeight = 320;
+            let x = e.clientX + 20;
+            let y = e.clientY + 20;
+
+            if (x + popupWidth > window.innerWidth) x = e.clientX - popupWidth - 20;
+            if (y + popupHeight > window.innerHeight) y = e.clientY - popupHeight - 20;
+
+            ownerPopup.style.left = x + 'px';
+            ownerPopup.style.top = y + 'px';
+        });
+
+        // Mobile: tap to open centered popup
+        ownerName.addEventListener('click', function(e) {
+            if (!isMobile()) return;
+            e.preventDefault();
+            ownerPopup.classList.add('visible');
+            ownerBackdrop.classList.add('visible');
+        });
+
+        // Close on backdrop tap
+        if (ownerBackdrop) {
+            ownerBackdrop.addEventListener('click', function() {
+                ownerPopup.classList.remove('visible');
+                ownerBackdrop.classList.remove('visible');
+            });
+        }
+
+        // Close on popup tap (mobile)
+        ownerPopup.addEventListener('click', function() {
+            if (isMobile()) {
+                ownerPopup.classList.remove('visible');
+                ownerBackdrop.classList.remove('visible');
             }
-            
-            // Check bottom edge
-            if (y + popupHeight > window.innerHeight) {
-                finalY = e.clientY - popupHeight - 20;
-            }
-            
-            ownerPopup.style.left = finalX + 'px';
-            ownerPopup.style.top = finalY + 'px';
         });
     }
     
@@ -239,3 +258,5 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Sri Veeranjaneya Travels website loaded successfully!');
     console.log('🚗 All features active: Mobile Menu, FAQ Accordion, WhatsApp Booking, Scroll Animations');
 });
+
+
