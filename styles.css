@@ -352,29 +352,68 @@ h1, h2, h3 {
     opacity: 0;
     transition: opacity 0.3s ease;
     overflow: hidden;
-    width: 320px;
+    width: 220px;
 }
 
 .owner-image-popup img {
     width: 100%;
-    height: 380px;
+    height: 260px;
     object-fit: cover;
+    object-position: top center;
     display: block;
 }
 
 .owner-image-label {
-    padding: 1.25rem;
+    padding: 0.875rem 1rem;
     background: linear-gradient(135deg, var(--orange) 0%, var(--orange-dark) 100%);
     color: white;
     text-align: center;
     font-weight: 700;
-    font-size: 1.1rem;
+    font-size: 0.95rem;
 }
 
 .owner-image-label span {
-    font-size: 0.9rem;
+    display: block;
+    font-size: 0.8rem;
     font-weight: 400;
     opacity: 0.95;
+}
+
+/* Mobile: tap to show popup as centered overlay instead of hover */
+@media (max-width: 768px) {
+    .owner-image-popup {
+        position: fixed;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(0.9);
+        width: min(280px, 80vw);
+        pointer-events: auto;
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        z-index: 2000;
+    }
+
+    .owner-image-popup.visible {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .owner-image-popup img {
+        height: min(300px, 55vw);
+    }
+
+    /* Dark backdrop on mobile */
+    .owner-popup-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1999;
+    }
+
+    .owner-popup-backdrop.visible {
+        display: block;
+    }
 }
 
 .about-container {
